@@ -1,0 +1,68 @@
+<html>
+<head>
+<script type="text/javascript">
+
+function obliczanie(dane){
+{
+wynik.innerHTML=" ";
+var cena_koncowa=0;
+var zmienna=0;
+if (dane.rodzaj.selectedIndex==0)
+{
+cena_koncowa=cena_koncowa*3;
+}
+if (dane.rodazaj.selectedIndex==1)
+{
+cena_koncowa=cena_koncowa*4;
+}
+if (dane.rodzaj.selectedIndex==2)
+{
+cena_koncowa=cena_koncowa*5;
+}
+
+if ( dane.ilość[0].checked)
+93
+{
+cena_koncowa=parseFloat(dane.cena.value);
+}
+wynik.innerHTML="do zapłaty "+cena_koncowa.toFixed(2)+" zł";
+}
+</script>
+</head>
+<body>
+<form name="lodziarnia">
+<b>Gałki:</b><br>
+rodzaje:<select name="rodzaj"/>
+<option value="0"> 3zł śmietankowy 
+<option value="7"> 4zł cytrynowy
+<option value="23"> 5zł czekoladowy
+</select><br>
+
+
+
+<b>Podaj ilość:</b><br>
+<input type="text" name="ilość"/><br><br>
+<b>Wybierz dodatek (można wiele):</b><br>
+
+
+<select name="dodatek"/>
+<option value="2"> 2zł posypka kolorowa
+<option value="3"> 3zł polewa czekoladowa
+<option value="4"> 4zł zmrożone truskaweczki
+</select><br>
+
+
+10% znizki przy zakupie 3 gałek:<input type="checkbox" name="znizka" value=10 />
+<br><br>
+<b>Podaj opcje dodatkowe:</b><br>
+ubezpieczenie zakup &nbsp&nbsp&nbsp15%<input type="checkbox" name="ubezpieczenie" value=0 /><br>
+94
+przedłużona gwarancja 28%<input type="checkbox" name="gwarancja" value=0 /><br><br>
+<!-- <input type="button" value="Oblicz....." onClick="obliczanie(this.form)"/><br><br> -->
+<input type="button" value="Oblicz....." onClick="lodziarnia(this.form)"/><br><br>
+</form>
+<table>
+<tr id="wynik"></tr>
+</table>
+</body>
+</html>
