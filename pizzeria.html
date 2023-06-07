@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Menu Pizzerii - DS24</title>
+  <style>
+    body {
+      background-color: lightgray;
+    }
+    .order-details {
+      float: right;
+      margin-right: 20px;
+    }
+  </style>
+  <script>
+    // Funkcja obliczająca sumę zamówienia
+    function obliczSumę() {
+      var cenaPizza = parseFloat(document.getElementById("cenaPizza").value);
+      var cenaSałatka = parseFloat(document.getElementById("cenaSałatka").value);
+      var cenaNapój = parseFloat(document.getElementById("cenaNapój").value);
+      var ilość = parseInt(document.getElementById("ilość").value);
+      var suma = (cenaPizza + cenaSałatka + cenaNapój) * ilość;
+      document.getElementById("sumaZamówienia").textContent = suma.toFixed(2) + " zł";
+    }
+
+    // Funkcja do wypisywania danych zamawiającego
+    function wyświetlSzczegółyZamówienia() {
+      var imię = document.getElementById("imię").value;
+      var nazwisko = document.getElementById("nazwisko").value;
+      var telefon = document.getElementById("telefon").value;
+      var email = document.getElementById("email").value;
+      var miasto = document.getElementById("miasto").value;
+      var ulica = document.getElementById("ulica").value;
+
+      var pizza = document.getElementById("nazwaPizza").options[document.getElementById("nazwaPizza").selectedIndex].text;
+      var sałatka = document.getElementById("nazwaSałatka").options[document.getElementById("nazwaSałatka").selectedIndex].text;
+      var napój = document.getElementById("nazwaNapój").options[document.getElementById("nazwaNapój").selectedIndex].text;
+      var ilość = parseInt(document.getElementById("ilość").value);
+      var sumaZamówienia = parseFloat(document.getElementById("sumaZamówienia").textContent);
+
+      var szczegółyZamówienia = "Dane zamawiającego:\n";
+      szczegółyZamówienia += "Imię: " + imię + "\n";
+      szczegółyZamówienia += "Nazwisko: " + nazwisko + "\n";
+      szczegółyZamówienia += "Telefon: " + telefon + "\n";
+      szczegółyZamówienia += "Email: " + email + "\n";
+      szczegółyZamówienia += "Miasto: " + miasto + "\n";
+      szczegółyZamówienia += "Ulica: " + ulica + "\n";
+      szczegółyZamówienia += "\n";
+      szczegółyZamówienia += "Zamówienie:\n";
+      szczegółyZamówienia += "Pizza: " + pizza + "\n";
+      szczegółyZamówienia += "Sałatka: " + sałatka + "\n";
+      szczegółyZamówienia += "Napój: " + napój + "\n";
+      szczegółyZamówienia += "Ilość: " + ilość + "\n";
+      szczegółyZamówienia += "Suma: " + sumaZamówienia.toFixed(2) + " zł\n";
+
+      document.getElementById("szczegółyZamówienia").textContent = szczegółyZamówienia;
+    }
+  </script>
+</head>
+<body>
+  <h1>Menu Pizzerii</h1>
+
+  <h2>Wybierz pizzę</h2>
+  <select id="cenaPizza">
+    <option value="20">Margherita - 20 zł</option>
+    <option value="25">Pepperoni - 25 zł</option>
+    <option value="22">Hawajska - 22 zł</option>
+  </select>
+
+  <h2>Wybierz sałatkę</h2>
+  <select id="cenaSałatka">
+    <option value="10">Caprese - 10 zł</option>
+    <option value="12">Cezar - 12 zł</option>
+    <option value="8">Grecka - 8 zł</option>
+  </select>
+
+  <h2>Wybierz napój</h2>
+  <select id="cenaNapój">
+    <option value="5">Cola - 5 zł</option>
+    <option value="4">Sprite - 4 zł</option>
+    <option value="3">Woda - 3 zł</option>
+  </select>
+
+  <h2>Ilość</h2>
+  <input type="number" id="ilość" min="1" value="1" />
+
+  <h2>Suma zamówienia</h2>
+  <p id="sumaZamówienia">0.00 zł</p>
+
+  <button onclick="obliczSumę()">Oblicz</button>
+
+  <div class="order-details">
+    <h2>Dane zamawiającego</h2>
+    <label for="imię">Imię:</label>
+    <input type="text" id="imię"><br>
+
+    <label for="nazwisko">Nazwisko:</label>
+    <input type="text" id="nazwisko"><br>
+
+    <label for="telefon">Telefon:</label>
+    <input type="text" id="telefon"><br>
+
+    <label for="email">Email:</label>
+    <input type="text" id="email"><br>
+
+    <label for="miasto">Miasto:</label>
+    <input type="text" id="miasto"><br>
+
+    <label for="ulica">Ulica zamieszkania:</label>
+    <input type="text" id="ulica"><br>
+
+    <button onclick="wyświetlSzczegółyZamówienia()">Pokaż szczegóły zamówienia</button>
+  </div>
+
+  <h2>Szczegóły zamówienia</h2>
+  <textarea id="szczegółyZamówienia" rows="10" cols="50" readonly></textarea>
+</body>
+</html>
+<!--Szałaty Daniel 3F 07.06.2023r.--> 
